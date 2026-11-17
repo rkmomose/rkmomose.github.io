@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rieko Momose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,300&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+  <aside class="rail">
+    <div class="brand brand-with-logo">
+      <a href="index.html" class="sidebar-logo-link" aria-label="Home"><img class="sidebar-logo"
+          src="assets/rieko-momose-logo.png" alt="RIEKO MOMOSE" /></a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-controls="menuPanel" aria-expanded="false">
+      <span>MENU</span><span class="menu-icon" aria-hidden="true">＋</span>
+    </button>
+    <div class="rail-bottom">
+      <div class="language-switch" aria-label="Language">
+        <a href="research.html" class="active">EN</a>
+        <span>/</span>
+        <a href="ja/research.html" class="">日本語</a>
+      </div>
+
+      <div class="sidebar-contact" aria-label="Contact">
+        <span class="sidebar-contact-label">CONTACT</span>
+
+        <div class="sidebar-email-group">
+          <button class="sidebar-email-toggle" type="button" aria-expanded="false" aria-controls="sidebarEmailDetails">
+            <i class="fa-solid fa-envelope"></i><span>EMAIL</span>
+          </button>
+          <div class="sidebar-email-details" id="sidebarEmailDetails" hidden>
+            <a href="mailto:rieko.momose@nao.ac.jp" class="email-primary"
+              aria-label="NAOJ email: rieko.momose@nao.ac.jp">
+              <span class="email-label">NAOJ</span>
+              <span class="email-address">rieko.momose@nao.ac.jp</span>
+            </a>
+            <a href="mailto:rieko.momose@gmail.com" class="email-secondary"
+              aria-label="Primary email: rieko.momose@gmail.com">
+              <span class="email-label">PRIMARY</span>
+              <span class="email-address">rieko.momose@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-detail-group">
+          <button class="sidebar-detail-toggle" type="button" aria-expanded="false"
+            aria-controls="sidebarAddressDetails">
+            <i class="fa-solid fa-location-dot"></i><span>ADDRESS</span>
+          </button>
+          <div class="sidebar-detail-details" id="sidebarAddressDetails" hidden>
+            <span class="detail-text">
+              Subaru Telescope,<br>
+              National Astronomical Observatory of Japan<br>
+              2-21-1 Osawa, Mitaka,<br>
+              Tokyo 181-8588, JAPAN
+            </span>
+          </div>
+        </div>
+
+        <div class="sidebar-detail-group">
+          <button class="sidebar-detail-toggle" type="button" aria-expanded="false" aria-controls="sidebarPhoneDetails">
+            <i class="fa-solid fa-phone"></i><span>PHONE</span>
+          </button>
+          <div class="sidebar-detail-details" id="sidebarPhoneDetails" hidden>
+            <a href="tel:+81422343900" class="detail-text">
+              +81 (422)-34-3900<br>
+              ext. 3285
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="inner-page">
+      <header class="page-intro">
+        <div class="page-kicker">RIEKO MOMOSE / NAOJ</div>
+        <h1 class="page-title">Research</h1>
+        <p class="page-deck research-tagline">Connecting galaxies, gas, and the cosmic web in an evolving cosmic
+          ecosystem.</p>
+      </header>
+      <section class="research-overview">
+        <section class="research-feature" id="ism">
+          <h2 class="research-feature-title">ISM</h2>
+          <div class="research-feature-grid">
+            <div class="research-feature-copy">
+              <p>The interstellar medium (ISM) is the immediate reservoir from which stars form and into which stellar
+                feedback returns matter, metals, and energy.</p>
+              <p>My research explores the physical processes that regulate star formation and quenching in galaxies,
+                including metal enrichment and stellar feedback. I am also interested in how the physical conditions of
+                the ISM evolve over cosmic time and how gas reservoirs within galaxies are connected to the broader
+                baryon cycle.</p>
+              <p>(Image Credit: NASA/ESA/CSA/STScI/J. DePasquale, A. Pagan, A. M. Koekemoer)</p>
+            </div>
+            <figure class="research-feature-figure"><img src="fig/ism_v2.jpg" alt="ISM research visualization"
+                loading="lazy"></figure>
+          </div>
+        </section>
+        <section class="research-feature" id="cgm">
+          <h2 class="research-feature-title">CGM</h2>
+          <div class="research-feature-grid">
+            <div class="research-feature-copy">
+              <p>The circumgalactic medium (CGM) forms the interface between galaxies and the wider Universe, recording
+                both the accretion of fresh material and the redistribution of gas, metals, and energy by outflows.</p>
+              <p>Understanding how star formation and stellar feedback within galaxies, together with their surrounding
+                large-scale environments, shape the physical properties of the CGM is a central focus of my research.
+                Another key question is how these processes evolve over cosmic time and how metals are transported and
+                distributed beyond galaxies. Through multiwavelength observations, I seek to reveal how the CGM mediates
+                the exchange of matter, metals, and energy between galaxies and their surroundings.</p>
+              <p>(Image Credit: NASA/ESA/Hubble Heritage Team)</p>
+            </div>
+            <figure class="research-feature-figure"><img src="fig/cgm_v2.jpg" alt="CGM research visualization"
+                loading="lazy"></figure>
+          </div>
+        </section>
+        <section class="research-feature" id="igm">
+          <h2 class="research-feature-title">IGM</h2>
+          <div class="research-feature-grid">
+            <div class="research-feature-copy">
+              <p>The intergalactic medium (IGM) is a major reservoir of baryons in the Universe, filling the space
+                between galaxies and tracing the large-scale structure of the cosmic web. It also preserves information
+                about the distribution, ionization state, and metal enrichment of baryons on large scales, as well as
+                their thermal history over cosmic time.</p>
+              <p>My work investigates the influence of the IGM on galaxy evolution and the evolution of its physical
+                properties throughout cosmic history. The IGM also serves as a powerful probe of the physical processes
+                governing cosmic reionization. Another important question is how metals produced in galaxies are
+                transported into and distributed throughout the IGM. I address these questions through both observations
+                and simulations.</p>
+              <p>(Image Credit: Bruno Villasenor et al., 2022, ApJ, 933, 59)</p>
+            </div>
+            <figure class="research-feature-figure"><img src="fig/igm_v2.jpg" alt="IGM research visualization"
+                loading="lazy"></figure>
+          </div>
+        </section>
+        <section class="research-feature" id="lss">
+          <h2 class="research-feature-title">LSS</h2>
+          <div class="research-feature-grid">
+            <div class="research-feature-copy">
+              <p>The large-scale structure (LSS) of the Universe is characterized by the distribution of matter in a
+                vast network of filaments, nodes, and voids, known as the cosmic web. This structure provides the
+                environmental framework within which galaxies form and evolve.</p>
+              <p>My work examines how environments shape galaxy evolution across scales, from individual dark matter
+                halos to the cosmic web, and how different evolutionary pathways depend on the surrounding matter and
+                gas distributions. By reconstructing galaxy and matter density fields through wide-field surveys and
+                comparing them with star formation activity, gas properties, and intergalactic absorption, I aim to
+                identify the physical connections between galaxy evolution and the underlying large-scale structure.</p>
+              <p>(Image Credit: Metin Ata et al., 2022, Nature Astronomy, 6, 857)</p>
+            </div>
+            <figure class="research-feature-figure"><img src="fig/lss_v1.jpg" alt="LSS research visualization"
+                loading="lazy"></figure>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-panel-inner">
+      <div class="menu-top">
+        <div class="menu-kicker">MENU</div>
+        <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+      </div>
+
+
+
+      <nav class="expanded-nav">
+        <div class="nav-group">
+          <a class="nav-parent" href="research.html"><span>01</span><strong>RESEARCH</strong></a>
+          <div class="nav-children open" id="researchChildren">
+            <a href="research.html#ism">ISM</a>
+            <a href="research.html#cgm">CGM</a>
+            <a href="research.html#igm">IGM</a>
+            <a href="research.html#lss">LSS</a>
+          </div>
+        </div>
+
+        <a href="publications.html"><span>02</span><strong>PUBLICATIONS</strong></a>
+        <div class="nav-group">
+          <a class="nav-parent" href="education.html"><span>03</span><strong>EDUCATION</strong></a>
+          <div class="nav-children open" id="educationChildren">
+            <a href="education.html#mentoring">Mentoring</a>
+            <a href="education.html#teaching">Teaching</a>
+          </div>
+        </div>
+
+        <a href="biography.html"><span>04</span><strong>BIOGRAPHY</strong></a>
+
+        <div class="nav-group">
+          <button class="nav-parent" id="miscellaneaToggle" aria-expanded="true">
+            <span>05</span><strong>MISCELLANEA</strong>
+          </button>
+          <div class="nav-children open" id="miscellaneaChildren">
+            <a href="outreach.html">Outreach</a>
+            <a href="photos.html">Photos</a>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="menu-footer">
+        <div class="menu-footer-group menu-language-block">
+          <span class="menu-footer-heading">LANGUAGE</span>
+          <div class="menu-footer-items menu-language-items">
+            <a href="research.html">ENGLISH</a>
+            <a href="ja/research.html">日本語</a>
+          </div>
+        </div>
+        <div class="menu-footer-group menu-links-block">
+          <span class="menu-footer-heading">LINKS</span>
+          <div class="menu-footer-items menu-link-items">
+            <a href="https://ui.adsabs.harvard.edu/search/q=author%3A(%22Momose%2C%20Rieko%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0"
+              class="menu-text-link" target="_blank" rel="noopener">SciX</a>
+            <a href="https://www.nao.ac.jp/en/" class="menu-text-link" target="_blank" rel="noopener">NAOJ</a>
+            <a href="https://www.linkedin.com/in/rieko-momose-3b861b87/" class="menu-icon-link" aria-label="LinkedIn"
+              title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://orcid.org/0000-0002-8857-2905" class="menu-icon-link" aria-label="ORCID" title="ORCID"
+              target="_blank" rel="noopener"><i class="fa-brands fa-orcid"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    const menuClose = document.getElementById('menuClose');
+    function openMenu() { menuPanel.classList.add('open'); menuPanel.setAttribute('aria-hidden', 'false'); menuToggle.setAttribute('aria-expanded', 'true'); document.body.classList.add('menu-open'); }
+    function closeMenu() { menuPanel.classList.remove('open'); menuPanel.setAttribute('aria-hidden', 'true'); menuToggle.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }
+    menuToggle?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    menuPanel?.addEventListener('click', (event) => { if (event.target === menuPanel) closeMenu(); });
+    window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    for (const [toggleId, childId] of [['miscellaneaToggle', 'miscellaneaChildren']]) {
+      const t = document.getElementById(toggleId), c = document.getElementById(childId);
+      t?.addEventListener('click', () => { const open = t.getAttribute('aria-expanded') === 'true'; t.setAttribute('aria-expanded', String(!open)); c?.classList.toggle('open'); });
+    }
+
+
+  </script>
+
+  <script src="sidebar-contact.js" defer></script>
+</body>
+
+</html>

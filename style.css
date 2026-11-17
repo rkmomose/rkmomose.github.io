@@ -1,0 +1,1734 @@
+/* ============================================================
+   RIEKO MOMOSE — CLEAN STYLESHEET
+   Rebuilt from scratch using v84 as the visual reference.
+   No historical version overrides are included.
+   ============================================================ */
+
+:root {
+  --muted: #7A808A;
+  --rail-width: clamp(112px, 11vw, 160px);
+  --paper: #F1F6FA;
+  --panel: #0F1528;
+  --heading: #17213A;
+  --body: #4d4d4d;
+  --brand-gold: #C8A45D;
+  --sidebar-muted: #DCE5F2;
+  --sidebar-active: #C8A45D;
+  --menu-text: var(--sidebar-muted);
+  --line: #d9d9d9;
+}
+
+html[lang="ja"] {
+  --body: #555555;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  color: #1a1a1a;
+  background-color: #101B3A;
+  background-image: url("https://assets.science.nasa.gov/content/dam/science/missions/webb/science/2023/06/STScI-01H1CTP0ZH56RH3HDG0HAZHYHM.png/jcr:content/renditions/2000x987.png");
+  background-repeat: no-repeat;
+  background-size: auto 100vh;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* ---------- Fixed sidebar ---------- */
+.rail {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--rail-width);
+  min-height: 100vh;
+  padding: 26px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 20;
+  background: rgba(16, 27, 58, .60);
+  border-right: 0;
+  backdrop-filter: brightness(.82) saturate(.95);
+  -webkit-backdrop-filter: brightness(.82) saturate(.95);
+  color: #DCE5F2;
+}
+
+.brand {
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+
+.brand-name {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 1.72vw, 26px);
+  line-height: .92;
+  letter-spacing: -.04em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+}
+
+.brand-name::before,
+.brand-name::after {
+  content: none;
+  display: none;
+}
+
+.brand-name .brand-rieko,
+.brand-name .brand-momose {
+  display: block;
+  font: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: left;
+  white-space: nowrap;
+  transform: none;
+}
+
+.brand-name .brand-momose {
+  margin-top: 5px;
+  letter-spacing: -.025em !important;
+}
+
+.brand-role {
+  width: 100%;
+  margin-top: 14px;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .17em;
+  text-align: left;
+  color: rgba(255, 255, 255, .84);
+  opacity: .74;
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 48%;
+  left: 18px;
+  right: 18px;
+  transform: translateY(-50%);
+  padding: 12px 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, .50);
+  border-bottom: 1px solid rgba(255, 255, 255, .50);
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: .14em;
+  color: var(--sidebar-muted);
+  opacity: 1;
+}
+
+.menu-toggle:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+.menu-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.rail-bottom {
+  display: grid;
+  gap: 22px;
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: #DCE5F2;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .08em;
+}
+
+.language-switch {
+  display: flex;
+  font-size: 11px;
+  color: #333333;
+  gap: 6px;
+  margin-bottom: 2px;
+  position: relative;
+  top: -5pt;
+}
+
+.rail-bottom .language-switch a,
+.rail-bottom .language-switch span {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rail-bottom .language-switch a:not(.active),
+.rail-bottom .language-switch span {
+  color: var(--sidebar-muted);
+  -webkit-text-fill-color: var(--sidebar-muted);
+  opacity: 1;
+}
+
+.rail-bottom .language-switch a.active {
+  color: var(--sidebar-active);
+  -webkit-text-fill-color: var(--sidebar-active);
+  opacity: 1;
+}
+
+.rail-bottom .language-switch a:hover {
+  color: var(--paper);
+  -webkit-text-fill-color: var(--paper);
+}
+
+.sidebar-contact {
+  display: grid;
+  gap: 6px;
+  margin-top: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+}
+
+.sidebar-contact-label {
+  margin-bottom: -1px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .14em;
+  color: #979999;
+  opacity: 1;
+}
+
+.sidebar-email-group,
+.sidebar-detail-group {
+  display: grid;
+  gap: 5px;
+}
+
+.sidebar-email-toggle,
+.sidebar-detail-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 17px 1fr;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  cursor: pointer;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  color: var(--sidebar-muted);
+  opacity: 1;
+}
+
+.sidebar-email-toggle:hover,
+.sidebar-email-toggle[aria-expanded="true"],
+.sidebar-detail-toggle:hover,
+.sidebar-detail-toggle[aria-expanded="true"] {
+  color: var(--sidebar-active);
+  opacity: 1;
+}
+
+.sidebar-email-toggle i,
+.sidebar-detail-toggle i {
+  font-size: 13px;
+  width: 15px;
+  text-align: center;
+}
+
+.sidebar-email-details {
+  display: grid;
+  gap: 6px;
+  margin-left: 25px;
+  padding-top: 2px;
+}
+
+.sidebar-detail-details {
+  display: block;
+  margin-left: 25px;
+  padding-top: 2px;
+}
+
+.sidebar-email-details[hidden],
+.sidebar-detail-details[hidden] {
+  display: none !important;
+}
+
+.sidebar-email-details a,
+.sidebar-detail-details .detail-text {
+  display: block;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  color: var(--sidebar-muted);
+  opacity: 1;
+}
+
+.sidebar-email-details a {
+  line-height: 1.25;
+}
+
+.sidebar-email-details a:hover,
+.sidebar-detail-details a.detail-text:hover,
+.email-primary .email-label {
+  color: var(--sidebar-muted);
+  opacity: 1;
+}
+
+.email-label {
+  display: block;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 1px;
+}
+
+.email-address {
+  display: block;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Main content ---------- */
+.content {
+  margin-left: var(--rail-width);
+  min-height: 100vh;
+  background: transparent;
+  color: #1a1a1a;
+}
+
+.home-page .hero,
+.home-page #about,
+.home-page #news,
+body:not(.home-page) .content,
+body:not(.home-page) .inner-page {
+  background: var(--paper);
+}
+
+.hero,
+.section {
+  padding-left: clamp(32px, 6vw, 96px);
+  padding-right: clamp(32px, 6vw, 96px);
+}
+
+.hero {
+  height: auto;
+  min-height: auto;
+  padding-top: clamp(22px, 3vh, 34px);
+  padding-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  color: #1a1a1a;
+}
+
+.hero h1 {
+  margin: 8px 0 10px;
+  max-width: 1000px;
+  white-space: nowrap;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(32px, 4.8vw, 68px);
+  line-height: .95;
+  letter-spacing: -.04em;
+  color: var(--heading);
+}
+
+.hero-copy {
+  width: min(620px, 80%);
+  max-width: 650px;
+  margin: 8px 0 1.35em auto;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(18px, 1.65vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.25;
+  letter-spacing: -.005em;
+  color: #414754;
+}
+
+.hero-visual {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  position: relative;
+}
+
+.visual-placeholder.science-image-wrap {
+  position: relative;
+  height: clamp(464px, 58.32vh, 648px);
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  display: block;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: auto 100vh;
+  background-position: center top;
+  background-attachment: scroll;
+  box-shadow: inset 0 0 0 1px rgba(23, 33, 58, .08);
+}
+
+.science-image {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: block;
+  width: 100%;
+  height: calc(100% + 100vh);
+  min-height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.image-credit {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  margin: 5px 0 0;
+  padding: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: .02em;
+  color: rgba(77, 77, 77, .62);
+  text-align: right;
+}
+
+.hero-scroll-cue {
+  display: none;
+}
+
+.section {
+  padding-top: 96px;
+  padding-bottom: 110px;
+  border-top: 1px solid var(--line);
+}
+
+#about .large-copy {
+  max-width: 980px;
+  margin: 36px 0 0 auto;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(14px, 1.18vw, 16px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.68;
+  letter-spacing: .015em;
+  color: var(--body);
+}
+
+.news-list {
+  margin-top: 32px;
+  gap: 6px;
+}
+
+.news-item {
+  display: block;
+  padding: 5px 0;
+}
+
+.news-item time,
+.news-item span {
+  font: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.news-item span {
+  flex: 1 1 auto;
+}
+
+/* ---------- Expanded navigation ---------- */
+.menu-panel {
+  position: fixed;
+  inset: 0;
+  padding-left: var(--rail-width);
+  background: rgba(17, 17, 17, .16);
+  backdrop-filter: blur(2px);
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+
+.menu-panel.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-panel-inner {
+  position: relative;
+  width: min(900px, calc(100vw - var(--rail-width)));
+  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: clamp(16px, 2.1vh, 24px) clamp(24px, 3vw, 44px) 0;
+  background: var(--panel);
+  color: #FFFFFF;
+  transform: translateX(-26px);
+  transition: transform .32s cubic-bezier(.2, .7, .2, 1);
+}
+
+.menu-panel.open .menu-panel-inner {
+  transform: translateX(0);
+}
+
+.menu-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-kicker,
+.menu-footer-heading {
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .105em;
+  color: var(--menu-text);
+  text-transform: uppercase;
+}
+
+.menu-close {
+  border: 0;
+  background: transparent;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--menu-text);
+}
+
+.expanded-nav {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(20px, 3.1vh, 34px);
+  margin: clamp(28px, 4.2vh, 50px) 0 0;
+  padding: 0 0 12px;
+  overflow: visible;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .105em;
+  color: var(--menu-text);
+}
+
+.expanded-nav>a,
+.expanded-nav>.nav-group {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-group {
+  display: block;
+}
+
+.expanded-nav>a,
+.nav-parent {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: var(--menu-text);
+  text-decoration: none;
+}
+
+.expanded-nav>a>span,
+.nav-parent>span {
+  display: block;
+  width: 38px;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: .105em;
+  text-align: left;
+  color: var(--menu-text);
+}
+
+.expanded-nav>a>strong,
+.nav-parent>strong {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(20px, min(2.7vw, 3.65vh), 36px);
+  font-weight: 700;
+  line-height: .94;
+  letter-spacing: .105em;
+  white-space: nowrap;
+  color: var(--menu-text);
+}
+
+.nav-children {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 6px 0 0 78px;
+  padding: 0;
+  opacity: 1;
+}
+
+.nav-children a {
+  display: block;
+  padding: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(14px, min(1.35vw, 1.85vh), 18px);
+  font-weight: 400;
+  line-height: 1.32;
+  letter-spacing: .105em;
+  color: var(--menu-text);
+}
+
+.menu-footer {
+  position: absolute;
+  bottom: clamp(30px, 7vh, 76px);
+  top: auto;
+  left: clamp(24px, 3vw, 44px);
+  right: clamp(24px, 3vw, 44px);
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 12px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, .27);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  color: var(--menu-text);
+  font-size: 8px;
+  letter-spacing: .105em;
+}
+
+.menu-footer-group {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.menu-footer-heading {
+  display: block;
+  width: auto;
+  margin: 0 0 5px;
+  padding: 0;
+}
+
+.menu-footer-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.menu-footer-items a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: .105em;
+  color: var(--menu-text);
+}
+
+.menu-footer-items a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.menu-links-block>.menu-footer-heading {
+  position: relative;
+  top: 5pt;
+}
+
+.menu-links-block .menu-link-items {
+  margin-top: 5pt;
+}
+
+.menu-icon-link i {
+  font-size: 19px;
+  line-height: 1;
+  color: var(--menu-text);
+}
+
+.menu-links-block .menu-icon-link i {
+  font-size: 21px;
+}
+
+/* ---------- Inner pages ---------- */
+.inner-page {
+  min-height: 100vh;
+  color: #1a1a1a;
+  padding: clamp(54px, 8vh, 96px) clamp(32px, 6vw, 96px) 110px;
+}
+
+.page-intro {
+  max-width: 1180px;
+  padding-bottom: clamp(54px, 8vh, 90px);
+}
+
+.page-kicker {
+  margin-bottom: 18px;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .105em;
+  color: rgba(51, 51, 51, .58);
+}
+
+.page-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(54px, 7vw, 104px);
+  font-weight: 700;
+  line-height: .93;
+  letter-spacing: -.035em;
+  color: var(--heading);
+}
+
+.page-deck {
+  max-width: 780px;
+  margin: 30px 0 0 auto;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(14px, 1.18vw, 16px);
+  line-height: 1.62;
+  color: var(--body);
+}
+
+.content-block {
+  padding: clamp(52px, 7vh, 82px) 0;
+  border-top: 1px solid rgba(51, 51, 51, .18);
+}
+
+.content-block h2 {
+  margin: 0 0 28px;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(34px, 4vw, 58px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--heading);
+}
+
+.content-block h3 {
+  margin: 36px 0 12px;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--heading);
+}
+
+.content-block p {
+  max-width: 900px;
+  margin: 0 0 20px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .62fr);
+  gap: clamp(42px, 8vw, 120px);
+  align-items: start;
+}
+
+.topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(51, 51, 51, .18);
+}
+
+.topic-list li {
+  display: grid;
+  grid-template-columns: 54px 1fr auto;
+  gap: 20px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(51, 51, 51, .18);
+}
+
+.topic-list .topic-index {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--body);
+}
+
+.topic-list a {
+  color: var(--body);
+}
+
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 8px;
+}
+
+.inline-links a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--body);
+}
+
+/* ---------- Research ---------- */
+.research-overview {
+  border-top: 1px solid rgba(23, 33, 58, .18);
+  margin-top: 4px;
+}
+
+.research-feature {
+  scroll-margin-top: 28px;
+  padding: clamp(46px, 6vh, 72px) 0;
+  border-bottom: 1px solid rgba(23, 33, 58, .12);
+}
+
+.research-feature:last-child {
+  border-bottom: 0;
+}
+
+.research-feature-title {
+  margin: 0 0 26px;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(30px, 3.2vw, 46px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--body);
+}
+
+.research-feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, .95fr);
+  gap: clamp(34px, 5vw, 72px);
+  align-items: center;
+}
+
+.research-feature:nth-child(even) .research-feature-copy {
+  order: 2;
+}
+
+.research-feature:nth-child(even) .research-feature-figure {
+  order: 1;
+}
+
+.research-feature-copy p {
+  margin: 0 0 13px;
+  font-size: clamp(14px, 1.18vw, 16px);
+  line-height: 1.65;
+}
+
+.research-feature-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.research-feature-figure {
+  aspect-ratio: 4/3;
+  display: grid;
+  place-items: center;
+  background: rgba(23, 33, 58, .045);
+  border: 1px solid rgba(23, 33, 58, .13);
+  overflow: hidden;
+}
+
+.research-feature-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.research-feature-figure span {
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--body);
+  text-transform: uppercase;
+}
+
+/* ---------- Publications ---------- */
+.page-action {
+  margin: 14px 0 0 auto;
+  max-width: 780px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.page-action a,
+.page-side-link,
+.pub-meta a,
+.page-deck a {
+  color: var(--body);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(36, 58, 115, .32);
+  padding-bottom: 2px;
+}
+
+.page-action a:hover,
+.page-side-link:hover,
+.pub-meta a:hover,
+.page-deck a:hover {
+  border-bottom-color: var(--body);
+}
+
+.publication-header-rule {
+  width: 100%;
+  height: 1px;
+  background: rgba(23, 33, 58, .18);
+  margin: 0;
+}
+
+.publication-simple {
+  padding: clamp(44px, 6vh, 66px) 0 90px;
+  border: 0;
+}
+
+.publication-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.publication-list-item {
+  padding: 0 0 26px;
+  margin: 0;
+  border: 0;
+  color: var(--body);
+  font-size: clamp(14px, 1.18vw, 16px);
+  line-height: 1.52;
+}
+
+.pub-title {
+  color: var(--body);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pub-authors {
+  margin-bottom: 3px;
+  color: var(--body);
+}
+
+.pub-authors strong {
+  font-weight: 700;
+  color: var(--body);
+}
+
+.pub-meta {
+  color: var(--body);
+}
+
+/* ---------- Biography ---------- */
+.page-deck-row {
+  display: block;
+  max-width: 780px;
+  margin: 56px 0 0 auto;
+}
+
+.page-deck-row .page-deck {
+  margin: 0;
+  max-width: 780px;
+}
+
+.page-side-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.bio-header-rule {
+  width: 100%;
+  height: 1px;
+  background: rgba(23, 33, 58, .18);
+  margin: 8px 0 0;
+}
+
+.bio-section {
+  padding: clamp(42px, 6vh, 70px) 0;
+  border-top: 0;
+}
+
+.bio-section+.bio-section {
+  border-top: 1px solid rgba(23, 33, 58, .12);
+}
+
+.bio-grid {
+  display: grid;
+  /* grid-template-columns: minmax(150px, .34fr) minmax(0, 1fr); 
+  gap: clamp(28px, 5vw, 72px); */
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.bio-heading {
+  margin: 0;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(30px, 3.4vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--body);
+}
+
+.bio-list {
+  display: grid;
+  gap: 18px;
+}
+
+.bio-item {
+  display: grid;
+  grid-template-columns: minmax(115px, 145px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: baseline;
+}
+
+.bio-date {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--body);
+}
+
+.bio-main {
+  font-size: clamp(14px, 1.18vw, 16px);
+  line-height: 1.62;
+  color: var(--body);
+}
+
+.bio-main strong {
+  color: var(--body);
+  font-weight: 600;
+}
+
+.bio-note {
+  margin-top: 4px;
+  font-size: .9em;
+  color: var(--body);
+}
+
+/* ---------- Photos ---------- */
+/* ---------- Language heading tracking ---------- */
+html[lang="ja"] .page-title {
+  letter-spacing: -.035em;
+}
+
+html[lang="ja"] .hero h1 {
+  letter-spacing: -.04em;
+}
+
+html[lang="ja"]
+/* ---------- Home section spacing ---------- */
+/* Single source of truth for ABOUT / NEWS vertical rhythm.
+   No min-height is used; spacing is controlled only by padding. */
+
+#about,
+.news-section {
+  min-height: auto;
+}
+
+#about {
+  padding-top: clamp(64px, 8vh, 92px);
+  padding-bottom: clamp(64px, 8vh, 92px);
+}
+
+.news-section {
+  padding-top: clamp(64px, 8vh, 92px);
+  padding-bottom: clamp(96px, 10vh, 120px);
+}
+
+.section-label,
+html[lang="ja"] .content-block h2,
+html[lang="ja"] .content-block h3,
+html[lang="ja"] .bio-heading,
+html[lang="ja"] .research-feature-title {
+  letter-spacing: normal;
+}
+
+/* ---------- Responsive ---------- */
+
+.news-item p {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 52px;
+}
+
+.news-item time {
+  display: inline-grid;
+  grid-template-columns: 44px 4ch;
+  column-gap: 8px;
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.news-item time .news-month,
+.news-item time .news-year {
+  display: block;
+}
+
+/* ---------- Photos ---------- */
+.photos-fixed-grid,
+.photos-dynamic-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(8px, 1vw, 14px);
+}
+
+.photos-fixed-grid {
+  padding: clamp(32px, 5vh, 56px) 0 14px;
+  border-top: 1px solid var(--line);
+}
+
+.photos-dynamic-grid {
+  padding: 0 0 90px;
+}
+
+.gallery-photo {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: rgba(23, 33, 58, .04);
+}
+
+.gallery-photo img,
+.gallery-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-photo-placeholder {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(23, 33, 58, .10);
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: .10em;
+  color: rgba(65, 71, 84, .42);
+}
+
+.gallery-photo[data-number]::after {
+  content: attr(data-number);
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  z-index: 2;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  color: #F8FAFA;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .55);
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Research tagline: same typography and alignment as Home hero-copy. */
+.page-intro .research-tagline {
+  width: min(620px, 80%);
+  max-width: 650px;
+  margin: 8px 0 1.35em auto;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(18px, 1.65vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.25;
+  letter-spacing: -.005em;
+  color: #414754 !important;
+}
+
+.page-intro .research-tagline {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  padding-right: 60px;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .page-intro .research-tagline {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* ---------- Page intro / deck text ---------- */
+.page-deck,
+.page-deck-row .page-deck,
+.page-header .page-deck,
+.page-intro .page-deck {
+  color: var(--muted) !important;
+}
+
+
+/* ---------- Subheading color ---------- */
+/* Section/subsection headings use the same dark blue family as Home labels. */
+.content-block h2,
+.content-block h3,
+.bio-heading,
+.research-feature-title,
+.project-gallery-copy h2,
+.pub-title {
+  color: var(--heading) !important;
+}
+
+/* ---------- Standard page body text color ---------- */
+/* Normal prose uses --body. Intro/deck copy (.page-deck) intentionally
+   remains muted and is controlled separately. */
+.content-block p,
+.content-block li,
+.research-feature-copy p,
+.project-gallery-copy p,
+.publication-list-item,
+.pub-authors,
+.bio-main {
+  color: var(--body);
+}
+
+/* ---------- Home ABOUT / NEWS body text ---------- */
+/* Keep Home body copy visually consistent. */
+.home-page #about .large-copy,
+.home-page .news-item,
+.home-page .news-item p,
+.home-page .news-item time,
+.home-page .news-item span {
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif !important;
+  color: #4d4d4d !important;
+}
+
+/* ---------- Home ABOUT / NEWS labels: exact v84 visual ---------- */
+.home-page #about .section-label,
+.home-page #news .section-label {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  font-size: clamp(30px, 3.8vw, 52px) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.025em !important;
+  color: #17213A !important;
+}
+
+html[lang="ja"] .home-page #about .section-label,
+html[lang="ja"] .home-page #news .section-label {
+  letter-spacing: normal !important;
+}
+
+@media (max-width: 1100px) {}
+
+@media (max-width: 820px) {
+  :root {
+    --rail-width: 0px;
+  }
+
+  body {
+    background-size: cover;
+    background-attachment: scroll;
+  }
+
+  .rail {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-height: auto;
+    height: 68px;
+    padding: 14px 18px;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: brightness(.82) saturate(.95);
+  }
+
+  .brand-role,
+  .rail-bottom {
+    display: none;
+  }
+
+  .brand-name {
+    width: auto;
+    font-size: 18px;
+    line-height: .88;
+  }
+
+  .brand-name .brand-momose {
+    margin-top: 0;
+  }
+
+  .menu-toggle {
+    position: static;
+    transform: none;
+    width: 92px;
+    padding: 10px 0;
+    margin-left: auto;
+    opacity: 1;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .menu-panel {
+    padding-left: 0;
+  }
+
+  .menu-panel-inner {
+    width: 100%;
+  }
+
+  .hero {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .hero h1 {
+    white-space: normal;
+  }
+
+  .hero-copy {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .home-page .visual-placeholder.science-image-wrap {
+    height: 454px;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+
+  .inner-page {
+    padding: 50px 22px 80px;
+  }
+
+  .page-deck,
+  .page-deck-row {
+    margin-left: 0;
+  }
+
+  .topic-list li {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .topic-list li> :last-child {
+    grid-column: 2;
+  }
+
+  .bio-grid,
+  .bio-item,
+  .research-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-item {
+    gap: 5px;
+  }
+
+  .research-feature:nth-child(even) .research-feature-copy,
+  .research-feature:nth-child(even) .research-feature-figure {
+    order: initial;
+  }
+}
+
+@media (max-width: 520px) {}
+
+@media (min-width: 821px) and (max-height: 820px) {
+  .expanded-nav {
+    gap: clamp(18px, 2.5vh, 28px);
+    margin-top: 22px;
+  }
+}
+
+@media (min-width: 821px) and (max-height: 760px) {
+  .hero h1 {
+    font-size: clamp(30px, 4.2vw, 58px);
+  }
+
+  .menu-footer {
+    top: auto;
+    padding-top: 9px;
+    gap: 16px;
+  }
+
+  .menu-links-block {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 821px) and (max-height: 690px) {
+  .expanded-nav {
+    gap: 11px;
+    margin-top: 12px;
+  }
+
+  .nav-children {
+    gap: 2px;
+    margin-top: 3px;
+  }
+}
+
+/* ---------- Projects gallery ---------- */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  padding: clamp(42px, 6vh, 68px) 0 90px;
+  border-top: 1px solid var(--line);
+}
+
+.project-gallery-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: transparent;
+}
+
+.project-gallery-image {
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: rgba(23, 33, 58, .045);
+  border: 1px solid rgba(23, 33, 58, .12);
+}
+
+.project-gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-gallery-image span {
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: rgba(65, 71, 84, .42);
+}
+
+.project-gallery-copy {
+  padding-top: 18px;
+}
+
+.project-gallery-copy h2 {
+  margin: 0 0 8px;
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--heading);
+}
+
+.project-gallery-copy p {
+  margin: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(14px, 1.18vw, 16px);
+  line-height: 1.62;
+  color: var(--body);
+}
+
+@media (max-width: 820px) {
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 登録済み写真の番号を非表示にする */
+.gallery-photo::before,
+.gallery-photo::after {
+  content: none !important;
+}
+
+/* 写真の上では指マークにする */
+.gallery-photo img {
+  cursor: pointer;
+}
+
+/* Compact navigation with footer that never overlaps the final menu group. */
+@media (max-height: 1050px) {
+  .menu-panel-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .expanded-nav {
+    flex: 0 0 auto;
+    gap: clamp(18px, 2.7vh, 28px);
+    margin-top: clamp(18px, 3vh, 30px);
+  }
+
+  .menu-footer {
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    margin-top: clamp(24px, 4vh, 42px);
+    margin-bottom: 28px;
+    gap: 22px;
+  }
+}
+
+/* Education mentoring subheadings: slightly larger, same heading color. */
+.education-mentoring-group h3 {
+  font-size: 19px;
+  color: var(--heading);
+}
+
+/* Japanese Research body: a little darker without affecting other pages. */
+html[lang="ja"] .research-feature-copy p {
+  color: #555555;
+}
+
+/* Shared sidebar logo: edit width here for every page */
+.brand.brand-with-logo {
+  --sidebar-logo-width: 100%;
+}
+
+.brand-with-logo .sidebar-logo {
+  display: block;
+  width: var(--sidebar-logo-width);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-with-logo .sidebar-logo-link {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width:820px) {
+  .rail .brand.brand-with-logo {
+    width: auto;
+    max-width: calc(100% - 110px);
+    flex: 0 1 130px;
+    min-width: 0;
+  }
+
+  .brand-with-logo .sidebar-logo-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+  }
+
+  .brand-with-logo .sidebar-logo {
+    width: auto;
+    max-width: 100%;
+    max-height: 40px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* 登録済み写真の番号を非表示にする */
+.gallery-photo::before,
+.gallery-photo::after {
+  content: none !important;
+}
+
+/* 写真の上では指マークにする */
+.gallery-photo img {
+  cursor: pointer;
+}
+
+/* Compact navigation with footer that never overlaps the final menu group. */
+@media (max-height: 1050px) {
+  .menu-panel-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .expanded-nav {
+    flex: 0 0 auto;
+    gap: clamp(18px, 2.7vh, 28px);
+    margin-top: clamp(18px, 3vh, 30px);
+  }
+
+  .menu-footer {
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    margin-top: clamp(24px, 4vh, 42px);
+    margin-bottom: 28px;
+    gap: 22px;
+  }
+}
+
+/* Education mentoring subheadings: slightly larger, same heading color. */
+.education-mentoring-group h3 {
+  font-size: 19px;
+  color: var(--heading);
+}
+
+/* Japanese Research body: a little darker without affecting other pages. */
+html[lang="ja"] .research-feature-copy p {
+  color: #555555;
+}
+
+/* Education: subsection headings */
+#mentoring h3 {
+  font-size: 22px;
+}
+
+#mentoring h3.postdocs-heading {
+  margin-top: 56px;
+}
+
+/* Education: spacing below Mentoring heading */
+#mentoring .research-feature-title {
+  margin-bottom: 40px;
+}
+
+/* Biography: reduce spacing between list items */
+.bio-list {
+  display: grid;
+  gap: 8px;
+}
+
+/* ---------- Outreach: Press Releases ---------- */
+
+.press-release-list {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.press-release-list>li {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 22px;
+  align-items: baseline;
+
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(14px, 1.18vw, 16px);
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--body);
+}
+
+.press-release-list>li a {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  border: none;
+}
+
+.press-release-list>li a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.press-release-list .press-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--body);
+}
+
+/* Sidebar and menu: hand cursor */
+.rail a,
+.rail button,
+.menu-panel a,
+.menu-panel button,
+.nav-parent,
+.nav-children a {
+  cursor: pointer !important;
+}
+
+/* Press Release: match text color to note */
+.press-release-list>li,
+.press-release-list .press-date,
+.press-release-list .press-title,
+.press-release-list a {
+  color: #555555 !important;
+}
+
+#press-release h2,
+#outreach h2,
+#other-writings h2 {
+  margin-bottom: 48px;
+}
+
+@media (min-width: 821px) {
+  .rail .brand.brand-with-logo {
+    width: calc(100% + 16px);
+    margin-left: -8px;
+  }
+}

@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rieko Momose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,300&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    /* Photo lightbox: isolated from the existing gallery layout. */
+    .gallery-photo.has-lightbox {
+      cursor: zoom-in;
+    }
+
+    .gallery-photo.has-lightbox:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    .photo-lightbox[hidden] {
+      display: none !important;
+    }
+
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(8, 9, 12, .94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 66px;
+      box-sizing: border-box;
+    }
+
+    .photo-lightbox-image {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .photo-lightbox-button {
+      position: absolute;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font: 300 32px/1 Arial, sans-serif;
+      padding: 12px;
+      opacity: .85;
+    }
+
+    .photo-lightbox-button:hover,
+    .photo-lightbox-button:focus-visible {
+      opacity: 1;
+    }
+
+    .photo-lightbox-close {
+      right: 16px;
+      top: 12px;
+    }
+
+    .photo-lightbox-prev {
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .photo-lightbox-next {
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media (max-width: 600px) {
+      .photo-lightbox {
+        padding: 56px 12px;
+      }
+
+      .photo-lightbox-prev {
+        left: 0;
+      }
+
+      .photo-lightbox-next {
+        right: 0;
+      }
+
+      .photo-lightbox-button {
+        font-size: 26px;
+        background: rgba(0, 0, 0, .25);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <aside class="rail">
+    <div class="brand brand-with-logo">
+      <a href="index.html" class="sidebar-logo-link" aria-label="Home"><img class="sidebar-logo"
+          src="assets/rieko-momose-logo.png" alt="RIEKO MOMOSE" /></a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-controls="menuPanel" aria-expanded="false">
+      <span>MENU</span><span class="menu-icon" aria-hidden="true">＋</span>
+    </button>
+    <div class="rail-bottom">
+      <div class="language-switch" aria-label="Language">
+        <a href="photos.html" class="active">EN</a>
+        <span>/</span>
+        <a href="photos.html">日本語</a>
+      </div>
+
+      <div class="sidebar-contact" aria-label="Contact">
+        <span class="sidebar-contact-label">CONTACT</span>
+
+        <div class="sidebar-email-group">
+          <button class="sidebar-email-toggle" type="button" aria-expanded="false" aria-controls="sidebarEmailDetails">
+            <i class="fa-solid fa-envelope"></i><span>EMAIL</span>
+          </button>
+          <div class="sidebar-email-details" id="sidebarEmailDetails" hidden>
+            <a href="mailto:rieko.momose@nao.ac.jp" class="email-primary"
+              aria-label="NAOJ email: rieko.momose@nao.ac.jp">
+              <span class="email-label">NAOJ</span>
+              <span class="email-address">rieko.momose@nao.ac.jp</span>
+            </a>
+            <a href="mailto:rieko.momose@gmail.com" class="email-secondary"
+              aria-label="Primary email: rieko.momose@gmail.com">
+              <span class="email-label">PRIMARY</span>
+              <span class="email-address">rieko.momose@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-detail-group">
+          <button class="sidebar-detail-toggle" type="button" aria-expanded="false"
+            aria-controls="sidebarAddressDetails">
+            <i class="fa-solid fa-location-dot"></i><span>ADDRESS</span>
+          </button>
+          <div class="sidebar-detail-details" id="sidebarAddressDetails" hidden>
+            <span class="detail-text">
+              Subaru Telescope,<br>
+              National Astronomical Observatory of Japan<br>
+              2-21-1 Osawa, Mitaka,<br>
+              Tokyo 181-8588, JAPAN
+            </span>
+          </div>
+        </div>
+
+        <div class="sidebar-detail-group">
+          <button class="sidebar-detail-toggle" type="button" aria-expanded="false" aria-controls="sidebarPhoneDetails">
+            <i class="fa-solid fa-phone"></i><span>PHONE</span>
+          </button>
+          <div class="sidebar-detail-details" id="sidebarPhoneDetails" hidden>
+            <a href="tel:+81422343900" class="detail-text">
+              +81 (422)-34-3900<br>
+              ext. 3285
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="inner-page">
+      <header class="page-intro">
+        <div class="page-kicker">RIEKO MOMOSE / NAOJ</div>
+        <h1 class="page-title">Photos</h1>
+      </header>
+      <section class="photos-fixed-grid" id="fixedPhotoGallery" aria-label="Fixed photo gallery"></section>
+      <section class="photos-dynamic-grid" id="photoGallery" aria-label="Photo gallery"></section>
+    </article>
+  </main>
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-panel-inner">
+      <div class="menu-top">
+        <div class="menu-kicker">MENU</div>
+        <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+      </div>
+
+
+
+      <nav class="expanded-nav">
+        <div class="nav-group">
+          <a class="nav-parent" href="research.html"><span>01</span><strong>RESEARCH</strong></a>
+          <div class="nav-children open" id="researchChildren">
+            <a href="research.html#ism">ISM</a>
+            <a href="research.html#cgm">CGM</a>
+            <a href="research.html#igm">IGM</a>
+            <a href="research.html#lss">LSS</a>
+          </div>
+        </div>
+
+        <a href="publications.html"><span>02</span><strong>PUBLICATIONS</strong></a>
+
+        <div class="nav-group">
+          <a class="nav-parent" href="education.html"><span>03</span><strong>EDUCATION</strong></a>
+          <div class="nav-children open" id="educationChildren">
+            <a href="education.html#mentoring">Mentoring</a>
+            <a href="education.html#teaching">Teaching</a>
+          </div>
+        </div>
+
+        <a href="biography.html"><span>04</span><strong>BIOGRAPHY</strong></a>
+
+        <div class="nav-group">
+          <button class="nav-parent" id="miscellaneaToggle" aria-expanded="true">
+            <span>05</span><strong>MISCELLANEA</strong>
+          </button>
+          <div class="nav-children open" id="miscellaneaChildren">
+            <a href="outreach.html">Outreach</a>
+            <a href="photos.html">Photos</a>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="menu-footer">
+        <div class="menu-footer-group menu-language-block">
+          <span class="menu-footer-heading">LANGUAGE</span>
+          <div class="menu-footer-items menu-language-items">
+            <a href="photos.html">ENGLISH</a>
+            <a href="ja/photos.html">日本語</a>
+          </div>
+        </div>
+        <div class="menu-footer-group menu-links-block">
+          <span class="menu-footer-heading">LINKS</span>
+          <div class="menu-footer-items menu-link-items">
+            <a href="https://ui.adsabs.harvard.edu/search/q=author%3A(%22Momose%2C%20Rieko%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0"
+              class="menu-text-link" target="_blank" rel="noopener">SciX</a>
+            <a href="https://www.nao.ac.jp/en/" class="menu-text-link" target="_blank" rel="noopener">NAOJ</a>
+            <a href="https://www.linkedin.com/in/rieko-momose-3b861b87/" class="menu-icon-link" aria-label="LinkedIn"
+              title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://orcid.org/0000-0002-8857-2905" class="menu-icon-link" aria-label="ORCID" title="ORCID"
+              target="_blank" rel="noopener"><i class="fa-brands fa-orcid"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Expanded photograph"
+    hidden>
+    <button class="photo-lightbox-button photo-lightbox-close" id="photoLightboxClose" type="button"
+      aria-label="Close photo">&times;</button>
+    <button class="photo-lightbox-button photo-lightbox-prev" id="photoLightboxPrev" type="button"
+      aria-label="Previous photo">&#8249;</button>
+    <img class="photo-lightbox-image" id="photoLightboxImage" alt="">
+    <button class="photo-lightbox-button photo-lightbox-next" id="photoLightboxNext" type="button"
+      aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <script src="photos-data.js"></script>
+  <script>
+    function renderPhoto(item, fixed = false) {
+      const figure = document.createElement("figure");
+      figure.className = fixed ? "gallery-photo fixed-photo" : "gallery-photo";
+      if (!fixed && item.number != null) figure.dataset.number = item.number;
+
+      if (item.src && !item.src.endsWith("/")) {
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.alt || "";
+        img.loading = "lazy";
+        if (item.position) img.style.objectPosition = item.position;
+        figure.appendChild(img);
+        figure.classList.add("has-lightbox");
+        figure.tabIndex = 0;
+        figure.setAttribute("role", "button");
+        figure.setAttribute("aria-label", "Enlarge photograph");
+      } else {
+        const placeholder = document.createElement("div");
+        placeholder.className = "gallery-photo-placeholder";
+        placeholder.textContent = fixed
+          ? `FIXED ${String(item.number).padStart(2, "0")}`
+          : `PHOTO ${String(item.number).padStart(2, "0")}`;
+        figure.appendChild(placeholder);
+      }
+      return figure;
+    }
+
+    const fixedGallery = document.getElementById("fixedPhotoGallery");
+    fixedPhotos.forEach(item => fixedGallery.appendChild(renderPhoto(item, true)));
+
+    const gallery = document.getElementById("photoGallery");
+    [...photos]
+      .sort((a, b) => b.number - a.number)
+      .forEach(item => gallery.appendChild(renderPhoto(item, false)));
+
+    // Only successfully configured images are included in the lightbox.
+    const lightbox = document.getElementById("photoLightbox");
+    const lightboxImage = document.getElementById("photoLightboxImage");
+    const lightboxPhotos = Array.from(document.querySelectorAll(".gallery-photo.has-lightbox"));
+    const previousButton = document.getElementById("photoLightboxPrev");
+    const nextButton = document.getElementById("photoLightboxNext");
+    let activePhoto = 0;
+    let lastFocusedElement = null;
+    let touchStartX = null;
+
+    function showPhoto(index) {
+      activePhoto = (index + lightboxPhotos.length) % lightboxPhotos.length;
+      const source = lightboxPhotos[activePhoto].querySelector("img");
+      lightboxImage.src = source.src;
+      lightboxImage.alt = source.alt;
+      previousButton.hidden = nextButton.hidden = lightboxPhotos.length < 2;
+    }
+    function openPhoto(index) {
+      lastFocusedElement = document.activeElement;
+      showPhoto(index);
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+      document.getElementById("photoLightboxClose").focus();
+    }
+    function closePhoto() {
+      lightbox.hidden = true;
+      lightboxImage.removeAttribute("src");
+      document.body.style.overflow = "";
+      lastFocusedElement?.focus();
+    }
+    lightboxPhotos.forEach((figure, index) => {
+      figure.addEventListener("click", () => openPhoto(index));
+      figure.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openPhoto(index);
+        }
+      });
+    });
+    document.getElementById("photoLightboxClose").addEventListener("click", closePhoto);
+    previousButton.addEventListener("click", () => showPhoto(activePhoto - 1));
+    nextButton.addEventListener("click", () => showPhoto(activePhoto + 1));
+    lightbox.addEventListener("click", event => { if (event.target === lightbox) closePhoto(); });
+    document.addEventListener("keydown", event => {
+      if (lightbox.hidden) return;
+      if (event.key === "Escape") closePhoto();
+      else if (event.key === "ArrowLeft") showPhoto(activePhoto - 1);
+      else if (event.key === "ArrowRight") showPhoto(activePhoto + 1);
+      else if (event.key === "Tab") {
+        const controls = [document.getElementById("photoLightboxClose"), previousButton, nextButton].filter(el => !el.hidden);
+        const at = controls.indexOf(document.activeElement);
+        if (event.shiftKey && at <= 0) { event.preventDefault(); controls[controls.length - 1].focus(); }
+        else if (!event.shiftKey && at === controls.length - 1) { event.preventDefault(); controls[0].focus(); }
+      }
+    });
+    lightbox.addEventListener("touchstart", event => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener("touchend", event => {
+      if (touchStartX === null) return;
+      const delta = event.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(delta) > 50 && lightboxPhotos.length > 1) showPhoto(activePhoto + (delta < 0 ? 1 : -1));
+      touchStartX = null;
+    }, { passive: true });
+  </script>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    const menuClose = document.getElementById('menuClose');
+    function openMenu() { menuPanel.classList.add('open'); menuPanel.setAttribute('aria-hidden', 'false'); menuToggle.setAttribute('aria-expanded', 'true'); document.body.classList.add('menu-open'); }
+    function closeMenu() { menuPanel.classList.remove('open'); menuPanel.setAttribute('aria-hidden', 'true'); menuToggle.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }
+    menuToggle?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    menuPanel?.addEventListener('click', (event) => { if (event.target === menuPanel) closeMenu(); });
+    window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    for (const [toggleId, childId] of [['miscellaneaToggle', 'miscellaneaChildren']]) {
+      const t = document.getElementById(toggleId), c = document.getElementById(childId);
+      t?.addEventListener('click', () => { const open = t.getAttribute('aria-expanded') === 'true'; t.setAttribute('aria-expanded', String(!open)); c?.classList.toggle('open'); });
+    }
+
+
+  </script>
+
+  <script src="sidebar-contact.js" defer></script>
+</body>
+
+</html>

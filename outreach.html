@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rieko Momose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,300&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    /* Outreach-only press release list */
+    .press-release-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-width: 1000px
+    }
+
+    .press-release-list li {
+      display: grid;
+      grid-template-columns: 145px minmax(0, 1fr);
+      gap: 22px;
+      align-items: baseline;
+      padding: 0;
+      border: none;
+    }
+
+    .press-release-list li:first-child {
+      border: none;
+    }
+
+    .press-release-date {
+      font-size: 14px;
+      color: #586477;
+      white-space: nowrap
+    }
+
+    .press-release-title {
+      font-size: clamp(15px, 1.2vw, 17px);
+      line-height: 1.65;
+      color: #17213a
+    }
+
+    .press-release-title a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: rgba(23, 33, 58, .35)
+    }
+
+    .press-release-title a:hover {
+      text-decoration-color: currentColor
+    }
+
+    @media(max-width:640px) {
+      .press-release-list li {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 14px 0
+      }
+    }
+
+    #press-release .press-release-note {
+      margin: 20px 0 0 !important;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <aside class="rail">
+    <div class="brand brand-with-logo">
+      <a href="index.html" class="sidebar-logo-link" aria-label="Home"><img class="sidebar-logo"
+          src="assets/rieko-momose-logo.png" alt="RIEKO MOMOSE" /></a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-controls="menuPanel" aria-expanded="false">
+      <span>MENU</span><span class="menu-icon" aria-hidden="true">＋</span>
+    </button>
+    <div class="rail-bottom">
+      <div class="language-switch" aria-label="Language">
+        <a href="outreach.html" class="active">EN</a>
+        <span>/</span>
+        <a href="ja/outreach.html" class="">日本語</a>
+      </div>
+
+      <div class="sidebar-contact" aria-label="Contact">
+        <span class="sidebar-contact-label">CONTACT</span>
+
+        <div class="sidebar-email-group">
+          <button class="sidebar-email-toggle" type="button" aria-expanded="false" aria-controls="sidebarEmailDetails">
+            <i class="fa-solid fa-envelope"></i><span>EMAIL</span>
+          </button>
+          <div class="sidebar-email-details" id="sidebarEmailDetails" hidden>
+            <a href="mailto:rieko.momose@nao.ac.jp" class="email-primary"
+              aria-label="NAOJ email: rieko.momose@nao.ac.jp">
+              <span class="email-label">NAOJ</span>
+              <span class="email-address">rieko.momose@nao.ac.jp</span>
+            </a>
+            <a href="mailto:rieko.momose@gmail.com" class="email-secondary"
+              aria-label="Primary email: rieko.momose@gmail.com">
+              <span class="email-label">PRIMARY</span>
+              <span class="email-address">rieko.momose@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-detail-group">
+          <button class="sidebar-detail-toggle" type="button" aria-expanded="false"
+            aria-controls="sidebarAddressDetails">
+            <i class="fa-solid fa-location-dot"></i><span>ADDRESS</span>
+          </button>
+          <div class="sidebar-detail-details" id="sidebarAddressDetails" hidden>
+            <span class="detail-text">
+              Subaru Telescope,<br>
+              National Astronomical Observatory of Japan<br>
+              2-21-1 Osawa, Mitaka,<br>
+              Tokyo 181-8588, JAPAN
+            </span>
+          </div>
+        </div>
+
+        <div class="sidebar-detail-group">
+          <button class="sidebar-detail-toggle" type="button" aria-expanded="false" aria-controls="sidebarPhoneDetails">
+            <i class="fa-solid fa-phone"></i><span>PHONE</span>
+          </button>
+          <div class="sidebar-detail-details" id="sidebarPhoneDetails" hidden>
+            <a href="tel:+81422343900" class="detail-text">
+              +81 (422)-34-3900<br>
+              ext. 3285
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="inner-page">
+      <header class="page-intro">
+        <div class="page-kicker">RIEKO MOMOSE / NAOJ</div>
+        <h1 class="page-title">Outreach</h1>
+        <p class="page-deck research-tagline"></p>
+      </header>
+      <section class="research-overview" aria-label="Outreach">
+        <section class="research-feature" id="press-release">
+          <h2 class="research-feature-title">Press Release</h2>
+          <div class="research-feature-copy">
+            <!-- Add press releases below. Duplicate an <li> block for each new release. -->
+            <ul class="press-release-list">
+              <li class="press-release-item">
+                <span class="press-date">Mar. 15, 2023</span>
+                <span class="press-title">
+                  Researchers uncover the first bubble in an intergalactic stew
+                  (<a href="https://www.ipmu.jp/en/20230315-COSTCO-I" target="_blank" rel="noopener">Kavli IPMU,
+                    University of Tokyo</a>)
+                </span>
+              </li>
+
+              <li class="press-release-item">
+                <span class="press-date">May 7, 2021</span>
+                <span class="press-title">
+                  Discovery of Galaxies Playing Hide-and-Seek<sup>*</sup>
+                  [in Japanese]
+                  (<a href="https://www.astron.s.u-tokyo.ac.jp/research_post/20210508/" target="_blank"
+                    rel="noopener">University of Tokyo</a>,
+                  <a href="https://resou.osaka-u.ac.jp/ja/research/2021/20210507_1" target="_blank"
+                    rel="noopener">University of Osaka</a>)
+                </span>
+              </li>
+            </ul>
+            <p class="press-release-note">
+              * Research led as PI.
+            </p>
+          </div>
+        </section>
+        <section class="research-feature" id="outreach">
+          <h2 class="research-feature-title">Public Lectures</h2>
+          <div class="research-feature-copy">
+            <!-- Add outreach activities here. -->
+            <p class="press-release-note">
+              I enjoy sharing the excitement of astronomy with people of all ages and backgrounds. I have given numerous
+              public lectures and participated in astronomy outreach programs across Japan, including events at the
+              University of Tokyo, Katsushika City Museum, Minato Science Museum, Science Agora, and Tsukuba Expo
+              Center. I also organized a series of
+              STEM outreach event for young children at a University of Tokyo nursery school in Kashiwa campus. During
+              my time in the
+              United States, I participated in STEM and career fairs at local schools and public outreach events at
+              Carnegie Observatories.</p>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-panel-inner">
+      <div class="menu-top">
+        <div class="menu-kicker">MENU</div>
+        <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+      </div>
+
+
+
+      <nav class="expanded-nav">
+        <div class="nav-group">
+          <a class="nav-parent" href="research.html"><span>01</span><strong>RESEARCH</strong></a>
+          <div class="nav-children open" id="researchChildren">
+            <a href="research.html#ism">ISM</a>
+            <a href="research.html#cgm">CGM</a>
+            <a href="research.html#igm">IGM</a>
+            <a href="research.html#lss">LSS</a>
+          </div>
+        </div>
+
+        <a href="publications.html"><span>02</span><strong>PUBLICATIONS</strong></a>
+        <div class="nav-group">
+          <a class="nav-parent" href="education.html"><span>03</span><strong>EDUCATION</strong></a>
+          <div class="nav-children open" id="educationChildren">
+            <a href="education.html#mentoring">Mentoring</a>
+            <a href="education.html#teaching">Teaching</a>
+          </div>
+        </div>
+
+        <a href="biography.html"><span>04</span><strong>BIOGRAPHY</strong></a>
+
+        <div class="nav-group">
+          <button class="nav-parent" id="miscellaneaToggle" aria-expanded="true">
+            <span>05</span><strong>MISCELLANEA</strong>
+          </button>
+          <div class="nav-children open" id="miscellaneaChildren">
+            <a href="outreach.html">Outreach</a>
+            <a href="photos.html">Photos</a>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="menu-footer">
+        <div class="menu-footer-group menu-language-block">
+          <span class="menu-footer-heading">LANGUAGE</span>
+          <div class="menu-footer-items menu-language-items">
+            <a href="outreach.html">ENGLISH</a>
+            <a href="ja/outreach.html">日本語</a>
+          </div>
+        </div>
+        <div class="menu-footer-group menu-links-block">
+          <span class="menu-footer-heading">LINKS</span>
+          <div class="menu-footer-items menu-link-items">
+            <a href="https://ui.adsabs.harvard.edu/search/q=author%3A(%22Momose%2C%20Rieko%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0"
+              class="menu-text-link" target="_blank" rel="noopener">SciX</a>
+            <a href="https://www.nao.ac.jp/en/" class="menu-text-link" target="_blank" rel="noopener">NAOJ</a>
+            <a href="https://www.linkedin.com/in/rieko-momose-3b861b87/" class="menu-icon-link" aria-label="LinkedIn"
+              title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://orcid.org/0000-0002-8857-2905" class="menu-icon-link" aria-label="ORCID" title="ORCID"
+              target="_blank" rel="noopener"><i class="fa-brands fa-orcid"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    const menuClose = document.getElementById('menuClose');
+    function openMenu() { menuPanel.classList.add('open'); menuPanel.setAttribute('aria-hidden', 'false'); menuToggle.setAttribute('aria-expanded', 'true'); document.body.classList.add('menu-open'); }
+    function closeMenu() { menuPanel.classList.remove('open'); menuPanel.setAttribute('aria-hidden', 'true'); menuToggle.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }
+    menuToggle?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    menuPanel?.addEventListener('click', (event) => { if (event.target === menuPanel) closeMenu(); });
+    window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    for (const [toggleId, childId] of [['miscellaneaToggle', 'miscellaneaChildren']]) {
+      const t = document.getElementById(toggleId), c = document.getElementById(childId);
+      t?.addEventListener('click', () => { const open = t.getAttribute('aria-expanded') === 'true'; t.setAttribute('aria-expanded', String(!open)); c?.classList.toggle('open'); });
+    }
+
+
+  </script>
+
+  <script src="sidebar-contact.js" defer></script>
+</body>
+
+</html>
